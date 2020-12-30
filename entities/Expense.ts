@@ -1,4 +1,5 @@
 import genUniqueId from '../utils/genUniqueId'
+import truncate from '../utils/truncate'
 
 class Expense {
   private label: string
@@ -23,7 +24,7 @@ class Expense {
   }
 
   updateLabel(label: string): void {
-    this.label = label
+    this.label = truncate(label, 10)
   }
 
   getAmount(): number {
