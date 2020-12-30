@@ -1,12 +1,21 @@
+import genUniqueId from '../utils/genUniqueId'
+
 class Expense {
   private label: string
   private amount: number
   private date: Date
+  private id: string
 
   constructor(label: string, amount: number, date: Date | string) {
     this.label = label
     this.amount = amount
     this.date = new Date(date)
+
+    this.id = genUniqueId()
+  }
+
+  getId(): string {
+    return this.id
   }
 
   getLabel(): string {
