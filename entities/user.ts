@@ -1,6 +1,6 @@
 import TrackedMonth from './TrackedMonth'
-import { genUniqueId } from '../utils/genUniqueId'
-import { Month } from '../types/Month'
+import genUniqueId from '../utils/genUniqueId'
+import Month from '../types/Month'
 
 class User {
   private name: string
