@@ -1,23 +1,41 @@
+import TrackedMonth from './TrackedMonth'
+import { genUniqueId } from '../utils/genUniqueId'
+import { Month } from '../types/Month'
+
 class User {
-  name: string
-  age: number
+  private name: string
+  private id: string
+  private trackedMonths: TrackedMonth[]
 
-  constructor(name: string, age: number) {
-    this.name = name
-    this.age = age
+  constructor(name: string, trackedMonths: TrackedMonth[]) {
+    this.updateName(name)
+
+    this.trackedMonths = trackedMonths
+    this.id = genUniqueId()
   }
 
-  printUserInfo() {
-    console.log(`name: ${this.name}, age: ${this.age}`)
+  getId(): string {
+    return this.id
   }
 
-  getName() {
+  getName(): string {
     return this.name
+  }
+
+  updateName(name: string) {
+    this.name = name
+  }
+
+  getTrackedMonths(): TrackedMonth[] {
+    return this.trackedMonths
+  }
+
+  getTrackedMonthsByDate(month: Month, year: number): TrackedMonth {
+    return this.getTrackedMonths().find(
+      (trackedMonth) =>
+        trackedMonth.getMonth() === month && trackedMonth.getYear() === year
+    )
   }
 }
 
-let mike: User
-mike = new User('Mike', 2)
-
-const katie = new User('Catherine', 35)
-katie.getName()
+export default User

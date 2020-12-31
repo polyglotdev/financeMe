@@ -11,10 +11,9 @@ class Budget {
   private expenses: Expense[]
 
   constructor(
+    category: Category,
     label: string,
     limit: number,
-    id: string,
-    category: Category,
     expenses: Expense[]
   ) {
     this.updateLabel(label)
